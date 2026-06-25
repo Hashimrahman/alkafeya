@@ -44,6 +44,16 @@
   --animate-fade-in: fade-in 0.8s ease-out both;
   --animate-float: float 3s ease-in-out infinite;
   --animate-slow-zoom: slow-zoom 18s ease-in-out infinite alternate;
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes fade-up {
@@ -121,6 +131,13 @@
 @layer components {
   .container-px {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+}
+
+/* Pause the hero ticker for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
   }
 }
 

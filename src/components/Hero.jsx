@@ -1,6 +1,7 @@
 import { Link } from 'react-scroll'
 import { MessageCircle, Compass, Star, ShieldCheck, Plane } from 'lucide-react'
 import { WHATSAPP_LINK } from '../constants'
+import ServiceTicker from './ServiceTicker'
 
 const HERO_IMG =
   'https://images.unsplash.com/photo-1539768942893-daf53e448371?w=1920&q=80&auto=format&fit=crop'
@@ -35,7 +36,10 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/20" />
       <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40" />
 
-      <div className="container-px relative z-10 w-full pt-28 pb-16">
+      {/* Scrolling services ticker overlaid just below the navbar */}
+      <ServiceTicker />
+
+      <div className="container-px relative z-10 w-full pt-36 pb-16 sm:pt-40">
         <div className="max-w-3xl">
           {/* Eyebrow badge */}
           <span className="animate-fade-in inline-flex items-center gap-2 rounded-full border border-primary-100 bg-primary-50 px-4 py-1.5 text-sm font-medium text-primary">

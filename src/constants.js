@@ -13,6 +13,11 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIC
   WHATSAPP_MESSAGE,
 )}`
 
+// Google Apps Script Web App URL that appends enquiry-form submissions to a Google Sheet.
+// Setup instructions + the script to paste are in google-apps-script.gs at the project root.
+// Until you replace this placeholder, the form falls back to sending the enquiry via WhatsApp.
+export const GOOGLE_SHEETS_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'
+
 export const CONTACT = {
   phoneDisplay: '+91 9XXX XXX XXX',
   phoneHref: 'tel:+919XXXXXXXXX',

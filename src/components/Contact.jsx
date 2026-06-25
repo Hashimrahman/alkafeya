@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { MapPin, Phone, Mail, MessageCircle, Send, CheckCircle2 } from 'lucide-react'
+import { MapPin, Phone, Mail, MessageCircle, Send, CheckCircle2, Loader2 } from 'lucide-react'
 import SectionHeading from './SectionHeading'
-import { CONTACT, WHATSAPP_LINK, WHATSAPP_NUMBER } from '../constants'
+import { CONTACT, WHATSAPP_LINK, WHATSAPP_NUMBER, GOOGLE_SHEETS_URL } from '../constants'
 
 const contactCards = [
   {
@@ -26,19 +26,47 @@ const contactCards = [
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({ name: '', phone: '', message: '' })
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const sheetsConfigured = GOOGLE_SHEETS_URL && !GOOGLE_SHEETS_URL.includes('PASTE_YOUR')
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // No backend — forward the enquiry straight to WhatsApp and show a confirmation.
-    const msg = `New enquiry from the website%0A%0AName: ${form.name}%0APhone: ${form.phone}%0AMessage: ${form.message}`
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank', 'noopener')
-    setSubmitted(true)
-    setForm({ name: '', phone: '', message: '' })
+    setError('')
+
+    // Fallback: until the Google Sheet is connected, forward the enquiry via WhatsApp.
+    if (!sheetsConfigured) {
+      const msg = `New enquiry from the website%0A%0AName: ${form.name}%0APhone: ${form.phone}%0AMessage: ${form.message}`
+      globalThis.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank', 'noopener')
+      setSubmitted(true)
+      setForm({ name: '', phone: '', message: '' })
+      return
+    }
+
+    // Save the enquiry to Google Sheets via the Apps Script web app.
+    setLoading(true)
+    try {
+      const formData = new FormData()
+      formData.append('name', form.name)
+      formData.append('phone', form.phone)
+      formData.append('message', form.message)
+
+      // Apps Script web apps redirect cross-origin, so we use no-cors (fire-and-forget).
+      await fetch(GOOGLE_SHEETS_URL, { method: 'POST', mode: 'no-cors', body: formData })
+
+      setSubmitted(true)
+      setForm({ name: '', phone: '', message: '' })
+    } catch {
+      setError('Sorry, something went wrong. Please try again or reach us on WhatsApp.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -126,7 +154,9 @@ export default function Contact() {
                   Thank you!
                 </p>
                 <p className="mt-1 text-sm text-gray-600">
-                  Your enquiry has been prepared in WhatsApp. We'll be in touch shortly.
+                  {sheetsConfigured
+                    ? "Your enquiry has been received. Our team will be in touch shortly."
+                    : "Your enquiry has been prepared in WhatsApp. We'll be in touch shortly."}
                 </p>
                 <button
                   type="button"
@@ -183,12 +213,25 @@ export default function Contact() {
                     className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
+                {error && (
+                  <p className="rounded-lg bg-red-50 px-4 py-2.5 text-sm text-red-600">{error}</p>
+                )}
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary-800 hover:shadow-xl"
+                  disabled={loading}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary-800 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  <Send className="h-5 w-5" />
-                  Submit Enquiry
+                  {loading ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-5 w-5" />
+                      Submit Enquiry
+                    </>
+                  )}
                 </button>
               </form>
             )}
