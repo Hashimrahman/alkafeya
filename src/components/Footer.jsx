@@ -1,5 +1,5 @@
 import { Link } from 'react-scroll'
-import { Plane, Facebook, Instagram, MapPin, Phone, Mail, ArrowUp } from 'lucide-react'
+import { Facebook, Instagram, MapPin, Phone, Mail, ArrowUp } from 'lucide-react'
 import { BRAND, NAV_LINKS, CONTACT, SOCIAL, WHATSAPP_LINK } from '../constants'
 
 const services = [
@@ -33,17 +33,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-primary-950">
-                <Plane className="h-5 w-5 -rotate-45" />
-              </span>
-              <div className="flex flex-col leading-none">
-                <span className="font-heading text-lg font-bold text-primary-900">{BRAND.line1}</span>
-                <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-accent-600">
-                  {BRAND.line2}
-                </span>
-              </div>
-            </div>
+            <img src="/logo.png" alt={BRAND.name} className="h-16 w-auto rounded-lg" />
             <p className="mt-5 text-sm leading-relaxed text-gray-600">
               <span className="font-semibold text-accent-600">{BRAND.tagline}.</span> Your trusted
               partner for travel, visas, business setup and study abroad — with confidence, every

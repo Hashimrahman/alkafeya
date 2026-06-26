@@ -3,8 +3,7 @@ import { MessageCircle, Compass, Star, ShieldCheck, Plane } from 'lucide-react'
 import { WHATSAPP_LINK } from '../constants'
 import ServiceTicker from './ServiceTicker'
 
-const HERO_IMG =
-  'https://images.unsplash.com/photo-1539768942893-daf53e448371?w=1920&q=80&auto=format&fit=crop'
+const HERO_IMG = '/new_logo.png'
 
 const stats = [
   { value: '15+', label: 'Years Experience' },
@@ -24,17 +23,17 @@ export default function Hero() {
       {/* Background image (enhancement on top of the light gradient) */}
       <img
         src={HERO_IMG}
-        alt="Aerial view of a tropical travel destination"
-        className="absolute inset-0 h-full w-full animate-slow-zoom object-cover"
+        alt="Sky Fall International"
+        className="absolute inset-0 h-full w-full object-cover object-center"
         loading="eager"
         onError={(e) => {
           e.currentTarget.style.display = 'none'
         }}
       />
 
-      {/* Light overlays — fade the photo into white so dark text stays readable on the left */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/40" />
+      {/* Light overlays — keep the branded image visible while dark text stays readable on the left */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/55 to-white/15" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-white/30" />
 
       {/* Scrolling services ticker overlaid just below the navbar */}
       <ServiceTicker />
