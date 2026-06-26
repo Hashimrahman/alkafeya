@@ -87,7 +87,7 @@ export default function WhyChooseUs() {
             Travel With Confidence, Every Single Time
           </h2>
           <p className="mt-4 text-base leading-relaxed text-gray-600">
-            At Al Kafeya Travel Solutions we combine deep expertise with genuine care.
+            At Sky Fall International we combine deep expertise with genuine care.
             From your first enquiry to your safe return home, our team makes every step
             simple, transparent and stress-free.
           </p>

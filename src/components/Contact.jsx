@@ -112,7 +112,7 @@ export default function Contact() {
           <div className="flex flex-col gap-6">
             <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
               <iframe
-                title="Al Kafeya Travel Solutions location"
+                title="Sky Fall International location"
                 src="https://www.google.com/maps?q=Hyderabad,Telangana,India&z=12&output=embed"
                 width="100%"
                 height="320"

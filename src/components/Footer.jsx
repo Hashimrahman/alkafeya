@@ -1,6 +1,6 @@
 import { Link } from 'react-scroll'
 import { Plane, Facebook, Instagram, MapPin, Phone, Mail, ArrowUp } from 'lucide-react'
-import { NAV_LINKS, CONTACT, SOCIAL, WHATSAPP_LINK } from '../constants'
+import { BRAND, NAV_LINKS, CONTACT, SOCIAL, WHATSAPP_LINK } from '../constants'
 
 const services = [
   'UAE Business Setup',
@@ -38,15 +38,16 @@ export default function Footer() {
                 <Plane className="h-5 w-5 -rotate-45" />
               </span>
               <div className="flex flex-col leading-none">
-                <span className="font-heading text-lg font-bold text-primary-900">Al Kafeya</span>
+                <span className="font-heading text-lg font-bold text-primary-900">{BRAND.line1}</span>
                 <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-accent-600">
-                  Travel Solutions
+                  {BRAND.line2}
                 </span>
               </div>
             </div>
             <p className="mt-5 text-sm leading-relaxed text-gray-600">
-              Your trusted partner for Hajj, Umrah, holidays and visa services. Travel with
-              confidence, every single time.
+              <span className="font-semibold text-accent-600">{BRAND.tagline}.</span> Your trusted
+              partner for travel, visas, business setup and study abroad — with confidence, every
+              single time.
             </p>
             <div className="mt-6 flex gap-3">
               {socials.map((s) => {
@@ -139,7 +140,7 @@ export default function Footer() {
       <div className="border-t border-gray-200">
         <div className="container-px flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
           <p className="text-sm text-gray-500">
-            © 2025 Al Kafeya Travel Solutions. All rights reserved.
+            © 2025 {BRAND.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <a

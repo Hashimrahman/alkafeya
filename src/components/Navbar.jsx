@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-scroll'
 import { Plane, Menu, X, MessageCircle } from 'lucide-react'
-import { NAV_LINKS, WHATSAPP_LINK } from '../constants'
+import { BRAND, NAV_LINKS, WHATSAPP_LINK } from '../constants'
 
 const NAV_OFFSET = -72 // height of the sticky navbar
 
@@ -54,17 +54,17 @@ export default function Navbar() {
           offset={NAV_OFFSET}
           onClick={() => setMenuOpen(false)}
           className="flex cursor-pointer items-center gap-2.5"
-          aria-label="Al Kafeya Travel Solutions — home"
+          aria-label={`${BRAND.name} — home`}
         >
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/30">
             <Plane className="h-5 w-5 -rotate-45" />
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-heading text-lg font-bold tracking-tight text-primary-900 transition-colors">
-              Al Kafeya
+              {BRAND.line1}
             </span>
             <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-accent-600 transition-colors">
-              Travel Solutions
+              {BRAND.line2}
             </span>
           </span>
         </Link>

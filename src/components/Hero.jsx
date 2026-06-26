@@ -44,23 +44,25 @@ export default function Hero() {
           {/* Eyebrow badge */}
           <span className="animate-fade-in inline-flex items-center gap-2 rounded-full border border-primary-100 bg-primary-50 px-4 py-1.5 text-sm font-medium text-primary">
             <Plane className="h-4 w-4 -rotate-45 text-accent-500" />
-            Hajj • Umrah • Holidays • Visa
+            UK • UAE • Visa • Study Abroad
           </span>
 
           <h1 className="animate-fade-up mt-6 font-heading text-4xl font-extrabold leading-tight text-primary-950 sm:text-5xl lg:text-6xl">
-            Your Trusted{' '}
-            <span className="relative whitespace-nowrap text-accent-500">
-              Travel &amp; Tour
-            </span>{' '}
-            Partner
+            <span className="block">
+              Begin Your <span className="text-accent-500">Journey</span> With Us
+            </span>
+            <span className="mt-3 block font-heading text-2xl font-semibold text-primary-700 sm:text-3xl lg:text-4xl">
+              Your Travel Partner
+            </span>
           </h1>
 
           <p
             className="animate-fade-up mt-5 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl"
             style={{ animationDelay: '0.1s' }}
           >
-            Al Kafeya Travel Solutions — Hajj, Umrah, Holiday Packages &amp; Visa
-            Services, planned end-to-end so you can simply enjoy the journey.
+            Sky Fall International — UK Visa, UAE Visa, Schengen Visa, Air
+            Ticketing &amp; Study Abroad, planned end-to-end so you can simply
+            enjoy the journey.
           </p>
 
           {/* CTAs */}

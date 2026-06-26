@@ -1,12 +1,12 @@
 /**
- * Al Kafeya Travel Solutions — Enquiry form → Google Sheets
+ * Sky Fall International — Enquiry form → Google Sheets
  * ---------------------------------------------------------
  * This script receives the website enquiry form and appends each
  * submission as a new row in a Google Sheet. No backend/server needed.
  *
  * ============== ONE-TIME SETUP (≈ 2 minutes) ==============
  *
- * 1. Create a Google Sheet (sheets.new). Name it e.g. "Al Kafeya Enquiries".
+ * 1. Create a Google Sheet (sheets.new). Name it e.g. "Sky Fall Enquiries".
  *
  * 2. In that sheet: Extensions ▸ Apps Script. Delete any sample code and
  *    paste THIS entire file. Click the save icon.
@@ -66,6 +66,6 @@ function doPost(e) {
 // Lets you open the /exec URL in a browser to confirm the app is live.
 function doGet() {
   return ContentService.createTextOutput(
-    'Al Kafeya enquiry endpoint is running.',
+    'Sky Fall International enquiry endpoint is running.',
   )
 }

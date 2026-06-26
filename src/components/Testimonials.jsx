@@ -25,7 +25,7 @@ const testimonials = [
     role: 'UAE Visa & Tour',
     rating: 5,
     quote:
-      'My UAE visa was approved in record time and the Dubai tour was perfectly planned. Professional, transparent and genuinely caring. My family travels only with Al Kafeya now.',
+      'My UAE visa was approved in record time and the Dubai tour was perfectly planned. Professional, transparent and genuinely caring. My family travels only with Sky Fall International now.',
     initials: 'MF',
     color: 'bg-primary-600',
   },

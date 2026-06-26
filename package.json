@@ -1,9 +1,9 @@
 {
-  "name": "al-kafeya-travel-solutions",
+  "name": "sky-fall-international",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Al Kafeya Travel Solutions — professional tours & travel agency website",
+  "description": "Sky Fall International — travel, visa, business setup & study-abroad agency website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

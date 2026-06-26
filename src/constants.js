@@ -1,13 +1,20 @@
 // ------------------------------------------------------------------
-//  Central place for site-wide contact details & links.
+//  Central place for site-wide brand, contact details & links.
 //  Replace the placeholder phone number / email with the real ones.
 // ------------------------------------------------------------------
+
+// Single source of truth for the brand name & tagline.
+export const BRAND = {
+  name: 'Sky Fall International',
+  line1: 'Sky Fall', // logo — first (bold) line
+  line2: 'International', // logo — second (small) line
+  tagline: 'Where Dreams Come True',
+}
 
 // Placeholder WhatsApp number (India format). Replace 9XXXXXXXXX with real digits.
 export const WHATSAPP_NUMBER = '919XXXXXXXXX'
 
-export const WHATSAPP_MESSAGE =
-  'Hello Al Kafeya Travel Solutions, I would like to know more about your travel packages.'
+export const WHATSAPP_MESSAGE = `Hello ${BRAND.name}, I would like to know more about your travel packages.`
 
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE,
@@ -21,7 +28,7 @@ export const GOOGLE_SHEETS_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE
 export const CONTACT = {
   phoneDisplay: '+91 9XXX XXX XXX',
   phoneHref: 'tel:+919XXXXXXXXX',
-  email: 'info@alkafeyatravel.com',
+  email: 'info@skyfallinternational.com',
   address: 'Office #204, Business Bay Tower, Hyderabad, Telangana 500001, India',
 }
 
