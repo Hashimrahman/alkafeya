@@ -1,6 +1,6 @@
 import ServiceTicker from './ServiceTicker'
 
-const SPLASH_IMG = '/bg-new.png'
+const SPLASH_IMG = '/bg-updated.png'
 
 // Fixed, full-screen landing image that stays pinned while the rest of the page
 // scrolls up and over it. The scrolling ad ticker sits at the top.
