@@ -43,6 +43,5 @@ export const NAV_LINKS = [
   { label: 'Home', to: 'home' },
   { label: 'About Us', to: 'why-choose-us' },
   { label: 'Services', to: 'services' },
-  { label: 'Packages', to: 'packages' },
   { label: 'Contact', to: 'contact' },
 ]

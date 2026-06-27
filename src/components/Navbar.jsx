@@ -1,21 +1,29 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-scroll'
-import { Menu, X, MessageCircle } from 'lucide-react'
-import { BRAND, NAV_LINKS, WHATSAPP_LINK } from '../constants'
+import { useLocation } from 'react-router-dom'
+import { Menu, X, Facebook, Instagram } from 'lucide-react'
+import { BRAND, NAV_LINKS, SOCIAL } from '../constants'
+import WhatsAppIcon from './WhatsAppIcon'
+import SectionLink from './SectionLink'
 
-const NAV_OFFSET = -72 // height of the sticky navbar
+const SOCIALS = [
+  { key: 'facebook', label: 'Facebook', Icon: Facebook, href: SOCIAL.facebook, hover: 'hover:text-primary' },
+  { key: 'instagram', label: 'Instagram', Icon: Instagram, href: SOCIAL.instagram, hover: 'hover:text-primary' },
+  { key: 'whatsapp', label: 'WhatsApp', Icon: WhatsAppIcon, href: SOCIAL.whatsapp, hover: 'hover:text-whatsapp' },
+]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [active, setActive] = useState('home')
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
-  // Toggle the "scrolled" look (solid bg + shadow) and track the active section.
+  // Toggle the "scrolled" look and track the active section (home page only).
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 24)
+      setScrolled(globalThis.scrollY > 24)
 
-      const offset = window.scrollY + 120
+      const offset = globalThis.scrollY + 120
       let current = NAV_LINKS[0].to
       for (const link of NAV_LINKS) {
         const el = document.getElementById(link.to)
@@ -25,8 +33,8 @@ export default function Navbar() {
     }
 
     handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    globalThis.addEventListener('scroll', handleScroll, { passive: true })
+    return () => globalThis.removeEventListener('scroll', handleScroll)
   }, [])
 
   // Lock body scroll while the mobile menu is open.
@@ -37,7 +45,8 @@ export default function Navbar() {
     }
   }, [menuOpen])
 
-  const solid = scrolled || menuOpen
+  // Off the home page there is no landing image behind the bar, so keep it solid.
+  const solid = scrolled || menuOpen || !isHome
 
   return (
     <header
@@ -47,56 +56,50 @@ export default function Navbar() {
     >
       <nav className="container-px flex h-[72px] items-center justify-between">
         {/* Logo */}
-        <Link
+        <SectionLink
           to="home"
-          smooth
-          duration={500}
-          offset={NAV_OFFSET}
           onClick={() => setMenuOpen(false)}
           className="flex cursor-pointer items-center gap-2.5"
-          aria-label={`${BRAND.name} — home`}
         >
-          <img
-            src="/logo.png"
-            alt={BRAND.name}
-            className="h-11 w-auto rounded-lg sm:h-12"
-          />
-        </Link>
+          <img src="/logo.png" alt={BRAND.name} className="h-11 w-auto rounded-lg sm:h-12" />
+        </SectionLink>
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.to}>
-              <Link
+              <SectionLink
                 to={link.to}
-                smooth
-                duration={500}
-                offset={NAV_OFFSET}
                 className={`relative cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                  active === link.to
+                  isHome && active === link.to
                     ? 'text-primary'
                     : 'text-gray-700 hover:text-primary'
                 }`}
               >
                 {link.label}
-                {active === link.to && (
+                {isHome && active === link.to && (
                   <span className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-accent" />
                 )}
-              </Link>
+              </SectionLink>
             </li>
           ))}
         </ul>
 
-        {/* Desktop WhatsApp CTA */}
-        <a
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden items-center gap-2 rounded-full bg-whatsapp px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-whatsapp/30 transition-all hover:bg-whatsapp-dark hover:shadow-xl lg:inline-flex"
-        >
-          <MessageCircle className="h-4 w-4" />
-          WhatsApp
-        </a>
+        {/* Desktop social icons */}
+        <div className="hidden items-center gap-0.5 lg:flex lg:border-l lg:border-gray-200 lg:pl-3">
+          {SOCIALS.map(({ key, label, Icon, href, hover }) => (
+            <a
+              key={key}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className={`flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 ${hover}`}
+            >
+              <Icon className="h-[18px] w-[18px]" />
+            </a>
+          ))}
+        </div>
 
         {/* Mobile hamburger */}
         <button
@@ -119,33 +122,33 @@ export default function Navbar() {
         <ul className="container-px flex flex-col gap-1 py-4">
           {NAV_LINKS.map((link) => (
             <li key={link.to}>
-              <Link
+              <SectionLink
                 to={link.to}
-                smooth
-                duration={500}
-                offset={NAV_OFFSET}
                 onClick={() => setMenuOpen(false)}
-                className={`block cursor-pointer rounded-lg px-4 py-3 text-base font-medium transition-colors ${
-                  active === link.to
+                className={`block w-full cursor-pointer rounded-lg px-4 py-3 text-left text-base font-medium transition-colors ${
+                  isHome && active === link.to
                     ? 'bg-primary-50 text-primary'
                     : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
                 }`}
               >
                 {link.label}
-              </Link>
+              </SectionLink>
             </li>
           ))}
-          <li className="mt-2">
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-base font-semibold text-white shadow-lg shadow-whatsapp/30 transition-colors hover:bg-whatsapp-dark"
-            >
-              <MessageCircle className="h-5 w-5" />
-              Chat on WhatsApp
-            </a>
+          <li className="mt-3 flex justify-center gap-3 border-t border-gray-100 pt-4">
+            {SOCIALS.map(({ key, label, Icon, href, hover }) => (
+              <a
+                key={key}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                onClick={() => setMenuOpen(false)}
+                className={`flex h-11 w-11 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 ${hover}`}
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
           </li>
         </ul>
       </div>

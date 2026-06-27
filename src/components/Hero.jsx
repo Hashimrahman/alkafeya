@@ -1,6 +1,4 @@
-import { Link } from 'react-scroll'
-import { MessageCircle, Compass, Star, ShieldCheck, Plane } from 'lucide-react'
-import { WHATSAPP_LINK } from '../constants'
+import { Star, ShieldCheck, Plane } from 'lucide-react'
 
 const stats = [
   { value: '15+', label: 'Years Experience' },
@@ -44,32 +42,6 @@ export default function Hero() {
             Ticketing &amp; Study Abroad, planned end-to-end so you can simply
             enjoy the journey.
           </p>
-
-          {/* CTAs */}
-          <div
-            className="animate-fade-up mt-9 flex flex-col gap-4 sm:flex-row"
-            style={{ animationDelay: '0.2s' }}
-          >
-            <Link
-              to="packages"
-              smooth
-              duration={600}
-              offset={-72}
-              className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-primary-950 shadow-xl shadow-accent/30 transition-all hover:bg-accent-400 hover:shadow-2xl"
-            >
-              <Compass className="h-5 w-5 transition-transform group-hover:rotate-45" />
-              Explore Packages
-            </Link>
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-primary-200 bg-white px-7 py-3.5 text-base font-semibold text-primary shadow-sm transition-all hover:border-primary hover:bg-primary-50"
-            >
-              <MessageCircle className="h-5 w-5" />
-              Contact Us on WhatsApp
-            </a>
-          </div>
 
           {/* Trust row */}
           <div

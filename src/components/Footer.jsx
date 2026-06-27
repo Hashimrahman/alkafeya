@@ -1,15 +1,8 @@
-import { Link } from 'react-scroll'
+import { Link } from 'react-router-dom'
 import { Facebook, Instagram, MapPin, Phone, Mail, ArrowUp } from 'lucide-react'
 import { BRAND, NAV_LINKS, CONTACT, SOCIAL, WHATSAPP_LINK } from '../constants'
-
-const services = [
-  'UAE Business Setup',
-  'UAE Visa Services',
-  'Travel & Ticketing',
-  'Europe Services',
-  'Study Abroad',
-  'Umrah Services',
-]
+import { services } from '../data/services'
+import SectionLink from './SectionLink'
 
 // Inline WhatsApp glyph (lucide has no dedicated brand icon)
 function WhatsAppIcon({ className }) {
@@ -64,15 +57,12 @@ export default function Footer() {
             <ul className="mt-5 space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.to}>
-                  <Link
+                  <SectionLink
                     to={link.to}
-                    smooth
-                    duration={500}
-                    offset={-72}
                     className="cursor-pointer text-sm text-gray-600 transition-colors hover:text-primary"
                   >
                     {link.label}
-                  </Link>
+                  </SectionLink>
                 </li>
               ))}
             </ul>
@@ -83,15 +73,12 @@ export default function Footer() {
             <h4 className="font-heading text-base font-semibold text-primary-900">Our Services</h4>
             <ul className="mt-5 space-y-3">
               {services.map((s) => (
-                <li key={s}>
+                <li key={s.slug}>
                   <Link
-                    to="services"
-                    smooth
-                    duration={500}
-                    offset={-72}
+                    to={`/service/${s.slug}`}
                     className="cursor-pointer text-sm text-gray-600 transition-colors hover:text-primary"
                   >
-                    {s}
+                    {s.title}
                   </Link>
                 </li>
               ))}
@@ -141,15 +128,12 @@ export default function Footer() {
             >
               Privacy Policy
             </a>
-            <Link
+            <SectionLink
               to="home"
-              smooth
-              duration={500}
               className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white text-primary shadow-sm ring-1 ring-gray-200 transition-colors hover:bg-accent hover:text-primary-950 hover:ring-accent"
-              aria-label="Back to top"
             >
               <ArrowUp className="h-5 w-5" />
-            </Link>
+            </SectionLink>
           </div>
         </div>
       </div>
