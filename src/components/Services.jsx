@@ -76,8 +76,8 @@ export default function Services() {
           subtitle="From company formation and UAE visas to worldwide travel and study abroad — everything you need, handled under one roof."
         />
 
-        {/* Masonry layout — cleanly packs categories of very different list lengths */}
-        <div className="mt-14 gap-6 sm:columns-2 lg:columns-3">
+        {/* Masonry layout (two columns) — cleanly packs categories of very different list lengths */}
+        <div className="mt-14 gap-6 sm:columns-2">
           {serviceCategories.map((category) => {
             const Icon = category.icon
             return (

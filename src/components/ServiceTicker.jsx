@@ -27,7 +27,7 @@ export default function ServiceTicker() {
   const loop = [...tickerItems, ...tickerItems]
 
   return (
-    <div className="group absolute inset-x-0 top-[72px] z-20 overflow-hidden border-y border-white/10 bg-primary/95 shadow-md backdrop-blur-sm">
+    <div className="group absolute inset-x-0 top-[72px] z-20 overflow-hidden border-y border-white/10 bg-primary shadow-md">
       <div className="flex w-max animate-marquee items-center py-3 will-change-transform group-hover:[animation-play-state:paused]">
         {loop.map((item, i) => {
           const Icon = item.icon
