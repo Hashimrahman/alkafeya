@@ -1,5 +1,14 @@
 import { useState } from 'react'
-import { MapPin, Phone, Mail, MessageCircle, Send, CheckCircle2, Loader2 } from 'lucide-react'
+import {
+  MapPin,
+  Phone,
+  Mail,
+  MessageCircle,
+  Send,
+  CheckCircle2,
+  Loader2,
+  ArrowRight,
+} from 'lucide-react'
 import SectionHeading from './SectionHeading'
 import { CONTACT, WHATSAPP_LINK, WHATSAPP_NUMBER, GOOGLE_SHEETS_URL } from '../constants'
 
@@ -8,18 +17,21 @@ const contactCards = [
     icon: MapPin,
     title: 'Visit Us',
     lines: CONTACT.address,
+    action: 'Get Directions',
     href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.mapQuery)}`,
   },
   {
     icon: Phone,
     title: 'Call Us',
-    lines: [CONTACT.phoneDisplay],
+    lines: [CONTACT.phoneDisplay, 'Mon – Sat, 9 AM – 7 PM'],
+    action: 'Call Now',
     href: CONTACT.phoneHref,
   },
   {
     icon: Mail,
     title: 'Email Us',
-    lines: [CONTACT.email],
+    lines: [CONTACT.email, 'We reply within a few hours'],
+    action: 'Send Email',
     href: `mailto:${CONTACT.email}`,
   },
 ]
@@ -79,7 +91,7 @@ export default function Contact() {
         />
 
         {/* Contact info cards */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-3">
           {contactCards.map((c) => {
             const Icon = c.icon
             return (
@@ -88,19 +100,23 @@ export default function Contact() {
                 href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all hover:-translate-y-1 hover:border-primary-100 hover:shadow-xl"
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                   <Icon className="h-6 w-6" />
                 </span>
-                <div>
-                  <h3 className="font-heading font-semibold text-primary-950">{c.title}</h3>
+                <h3 className="mt-5 font-heading text-lg font-semibold text-primary-950">
+                  {c.title}
+                </h3>
+                <div className="mt-2 flex-1 space-y-0.5 text-sm leading-relaxed text-gray-600">
                   {c.lines.map((line) => (
-                    <p key={line} className="mt-1 text-sm leading-relaxed text-gray-600">
-                      {line}
-                    </p>
+                    <p key={line}>{line}</p>
                   ))}
                 </div>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                  {c.action}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
               </a>
             )
           })}
