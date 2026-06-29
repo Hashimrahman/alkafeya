@@ -6,9 +6,9 @@ import WhatsAppIcon from './WhatsAppIcon'
 import SectionLink from './SectionLink'
 
 const SOCIALS = [
-  { key: 'facebook', label: 'Facebook', Icon: Facebook, href: SOCIAL.facebook, hover: 'hover:text-primary' },
-  { key: 'instagram', label: 'Instagram', Icon: Instagram, href: SOCIAL.instagram, hover: 'hover:text-primary' },
-  { key: 'whatsapp', label: 'WhatsApp', Icon: WhatsAppIcon, href: SOCIAL.whatsapp, hover: 'hover:text-whatsapp' },
+  { key: 'facebook', label: 'Facebook', Icon: Facebook, href: SOCIAL.facebook, color: 'text-[#1877F2]' },
+  { key: 'instagram', label: 'Instagram', Icon: Instagram, href: SOCIAL.instagram, color: 'text-[#E4405F]' },
+  { key: 'whatsapp', label: 'WhatsApp', Icon: WhatsAppIcon, href: SOCIAL.whatsapp, color: 'text-[#25D366]' },
 ]
 
 export default function Navbar() {
@@ -70,7 +70,7 @@ export default function Navbar() {
             <li key={link.to}>
               <SectionLink
                 to={link.to}
-                className={`relative cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                className={`relative cursor-pointer rounded-lg px-4 py-2 text-[15px] font-medium transition-colors ${
                   isHome && active === link.to
                     ? 'text-primary'
                     : 'text-gray-700 hover:text-primary'
@@ -86,17 +86,23 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop social icons */}
-        <div className="hidden items-center gap-0.5 lg:flex lg:border-l lg:border-gray-200 lg:pl-3">
-          {SOCIALS.map(({ key, label, Icon, href, hover }) => (
+        <div
+          className={`hidden items-center gap-1.5 lg:flex lg:border-l lg:pl-3 ${
+            solid ? 'lg:border-gray-200' : 'lg:border-white/40'
+          }`}
+        >
+          {SOCIALS.map(({ key, label, Icon, href, color }) => (
             <a
               key={key}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className={`flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 ${hover}`}
+              className={`flex h-9 w-9 items-center justify-center rounded-full transition-all ${color} ${
+                solid ? 'hover:bg-gray-100' : 'bg-white shadow-md hover:shadow-lg'
+              }`}
             >
-              <Icon className="h-[18px] w-[18px]" />
+              <Icon className="h-5 w-5" />
             </a>
           ))}
         </div>
@@ -136,7 +142,7 @@ export default function Navbar() {
             </li>
           ))}
           <li className="mt-3 flex justify-center gap-3 border-t border-gray-100 pt-4">
-            {SOCIALS.map(({ key, label, Icon, href, hover }) => (
+            {SOCIALS.map(({ key, label, Icon, href, color }) => (
               <a
                 key={key}
                 href={href}
@@ -144,7 +150,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 aria-label={label}
                 onClick={() => setMenuOpen(false)}
-                className={`flex h-11 w-11 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 ${hover}`}
+                className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-gray-100 ${color}`}
               >
                 <Icon className="h-5 w-5" />
               </a>

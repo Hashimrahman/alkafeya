@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Facebook, Instagram, MapPin, Phone, Mail, ArrowUp } from 'lucide-react'
+import { Facebook, Instagram, MapPin, Phone, Mail, ArrowUp, Building2 } from 'lucide-react'
 import { BRAND, NAV_LINKS, CONTACT, SOCIAL, WHATSAPP_LINK } from '../constants'
 import { services } from '../data/services'
 import SectionLink from './SectionLink'
@@ -49,6 +49,14 @@ export default function Footer() {
                 )
               })}
             </div>
+
+            {/* Parent company */}
+            <div className="mt-6 inline-flex items-center gap-2 rounded-lg bg-white px-3.5 py-2.5 text-xs text-gray-600 ring-1 ring-gray-200">
+              <Building2 className="h-4 w-4 shrink-0 text-accent-600" />
+              <span>
+                Run by <span className="font-semibold text-primary-900">{BRAND.parent}</span>
+              </span>
+            </div>
           </div>
 
           {/* Quick links */}
@@ -76,6 +84,8 @@ export default function Footer() {
                 <li key={s.slug}>
                   <Link
                     to={`/service/${s.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="cursor-pointer text-sm text-gray-600 transition-colors hover:text-primary"
                   >
                     {s.title}
@@ -91,7 +101,13 @@ export default function Footer() {
             <ul className="mt-5 space-y-4 text-sm text-gray-600">
               <li className="flex gap-3">
                 <MapPin className="h-5 w-5 shrink-0 text-accent-600" />
-                <span>{CONTACT.address}</span>
+                <span>
+                  {CONTACT.address.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </span>
               </li>
               <li>
                 <a href={CONTACT.phoneHref} className="flex gap-3 transition-colors hover:text-primary">
@@ -117,7 +133,7 @@ export default function Footer() {
       <div className="border-t border-gray-200">
         <div className="container-px flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
           <p className="text-sm text-gray-500">
-            © 2025 {BRAND.name}. All rights reserved.
+            © 2025 {BRAND.name} · Run by {BRAND.parent}. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <a

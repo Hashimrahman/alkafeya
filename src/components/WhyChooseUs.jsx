@@ -71,8 +71,8 @@ export default function WhyChooseUs() {
               <ShieldCheck className="h-6 w-6" />
             </span>
             <div>
-              <div className="font-heading text-2xl font-bold text-primary-950">50,000+</div>
-              <div className="text-sm text-gray-500">Journeys delivered</div>
+              <div className="font-heading text-2xl font-bold text-primary-950">1,000+</div>
+              <div className="text-sm text-gray-500">Happy clients</div>
             </div>
           </div>
         </div>

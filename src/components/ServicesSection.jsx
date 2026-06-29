@@ -149,6 +149,8 @@ export default function ServicesSection() {
                     <p className="mt-2 text-sm leading-relaxed text-white/85">{service.short}</p>
                     <Link
                       to={`/service/${service.slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-primary-950 transition-all hover:bg-accent"
                     >
                       Know More

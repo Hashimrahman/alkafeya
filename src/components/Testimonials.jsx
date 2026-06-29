@@ -3,31 +3,40 @@ import SectionHeading from './SectionHeading'
 
 const testimonials = [
   {
-    name: 'Ahmed Rahman',
-    role: 'Umrah Pilgrim',
+    name: 'Aisha Khan',
+    role: "Master's in the UK",
     rating: 5,
     quote:
-      'Our Umrah trip was flawless from start to finish. The hotel was steps from the Haram and the team guided us at every stage. Truly stress-free and spiritual.',
-    initials: 'AR',
+      'Sky Fall guided me from choosing my university to my student visa. I’m now studying in Manchester — couldn’t have done it without them!',
+    initials: 'AK',
     color: 'bg-primary',
   },
   {
-    name: 'Priya Sharma',
-    role: 'Maldives Holiday',
+    name: 'Rohan Verma',
+    role: 'MSc in Germany',
     rating: 5,
     quote:
-      'Booked our honeymoon to the Maldives and it exceeded every expectation. Great prices, beautiful resort and the coordinator was available 24/7. Highly recommend!',
-    initials: 'PS',
+      'From admissions to the visa interview, the team was with me at every step. Got my Germany student visa completely stress-free.',
+    initials: 'RV',
     color: 'bg-accent-600',
   },
   {
-    name: 'Mohammed Faisal',
-    role: 'UAE Visa & Tour',
+    name: 'Sana Sheikh',
+    role: 'UK Visit Visa',
     rating: 5,
     quote:
-      'My UAE visa was approved in record time and the Dubai tour was perfectly planned. Professional, transparent and genuinely caring. My family travels only with Sky Fall International now.',
-    initials: 'MF',
+      'My UK visit visa was approved quickly with zero hassle. Professional, responsive and genuinely helpful throughout the process.',
+    initials: 'SS',
     color: 'bg-primary-600',
+  },
+  {
+    name: 'Abdullah Rahman',
+    role: 'Umrah Pilgrim',
+    rating: 5,
+    quote:
+      'Our Umrah package was flawless — visa, flights and a hotel right by the Haram. A truly blessed, worry-free journey.',
+    initials: 'AR',
+    color: 'bg-accent-700',
   },
 ]
 
@@ -41,15 +50,15 @@ export default function Testimonials() {
       <div className="container-px relative">
         <SectionHeading
           eyebrow="Testimonials"
-          title="What Our Travellers Say"
-          subtitle="Real stories from thousands of happy pilgrims, families and explorers."
+          title="What Our Clients Say"
+          subtitle="Real stories from our students, travellers and pilgrims."
         />
 
-        <div className="mt-14 grid gap-7 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {testimonials.map((t) => (
             <figure
               key={t.name}
-              className="relative flex flex-col rounded-2xl bg-white p-7 shadow-xl transition-transform duration-300 hover:-translate-y-1.5"
+              className="relative flex flex-col rounded-2xl bg-white p-6 shadow-xl transition-transform duration-300 hover:-translate-y-1.5"
             >
               <Quote className="absolute right-6 top-6 h-10 w-10 text-primary-100" />
 

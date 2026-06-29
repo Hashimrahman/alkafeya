@@ -7,8 +7,8 @@ const contactCards = [
   {
     icon: MapPin,
     title: 'Visit Us',
-    lines: [CONTACT.address],
-    href: 'https://maps.google.com',
+    lines: CONTACT.address,
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.mapQuery)}`,
   },
   {
     icon: Phone,
@@ -113,7 +113,7 @@ export default function Contact() {
             <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
               <iframe
                 title="Sky Fall International location"
-                src="https://www.google.com/maps?q=Hyderabad,Telangana,India&z=12&output=embed"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(CONTACT.mapQuery)}&z=16&output=embed`}
                 width="100%"
                 height="320"
                 style={{ border: 0 }}

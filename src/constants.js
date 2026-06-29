@@ -9,10 +9,11 @@ export const BRAND = {
   line1: 'Sky Fall', // logo — first (bold) line
   line2: 'International', // logo — second (small) line
   tagline: 'Where Dreams Come True',
+  parent: 'Al Faz International General Trading LLC',
 }
 
-// Placeholder WhatsApp number (India format). Replace 9XXXXXXXXX with real digits.
-export const WHATSAPP_NUMBER = '919XXXXXXXXX'
+// WhatsApp number in international format (no +, spaces or dashes).
+export const WHATSAPP_NUMBER = '971543560908'
 
 export const WHATSAPP_MESSAGE = `Hello ${BRAND.name}, I would like to know more about your travel packages.`
 
@@ -26,10 +27,17 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIC
 export const GOOGLE_SHEETS_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'
 
 export const CONTACT = {
-  phoneDisplay: '+91 9XXX XXX XXX',
-  phoneHref: 'tel:+919XXXXXXXXX',
+  phoneDisplay: '+971 54 356 0908',
+  phoneHref: 'tel:+971543560908',
   email: 'info@skyfallinternational.com',
-  address: 'Office #204, Business Bay Tower, Hyderabad, Telangana 500001, India',
+  address: [
+    'Al Faz International General Trading LLC',
+    'M2 Floor, Burj Nahar Complex, Entrance 2',
+    'A5 Block, Office No: 06',
+    'Muteena, Deira, Dubai, UAE',
+  ],
+  // Google Maps search query for the embedded map
+  mapQuery: 'Burj Nahar Complex, Muteena, Deira, Dubai',
 }
 
 export const SOCIAL = {

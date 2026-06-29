@@ -1,17 +1,17 @@
 import { Star, ShieldCheck, Plane } from 'lucide-react'
 
 const stats = [
-  { value: '15+', label: 'Years Experience' },
-  { value: '50K+', label: 'Happy Travellers' },
-  { value: '120+', label: 'Destinations' },
+  { value: '5+', label: 'Years Experience' },
+  { value: '1,000+', label: 'Happy Travellers' },
+  { value: '2,000+', label: 'Students' },
 ]
 
-const IMG_AIRPLANE =
-  'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80&auto=format&fit=crop'
-const IMG_DUBAI =
+const IMG_UK =
+  'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80&auto=format&fit=crop'
+const IMG_STUDY =
+  'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=600&q=80&auto=format&fit=crop'
+const IMG_UAE =
   'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80&auto=format&fit=crop'
-const IMG_MALDIVES =
-  'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=80&auto=format&fit=crop'
 
 export default function Hero() {
   return (
@@ -82,20 +82,20 @@ export default function Hero() {
 
           <div className="relative grid grid-cols-2 gap-4">
             <img
-              src={IMG_AIRPLANE}
-              alt="Aeroplane wing above the clouds"
+              src={IMG_UK}
+              alt="London — UK visa services"
               loading="lazy"
               className="col-span-2 h-56 w-full rounded-3xl object-cover shadow-xl sm:h-64"
             />
             <img
-              src={IMG_DUBAI}
-              alt="Dubai skyline"
+              src={IMG_STUDY}
+              alt="Graduates — study abroad"
               loading="lazy"
               className="h-40 w-full rounded-2xl object-cover shadow-lg sm:h-48"
             />
             <img
-              src={IMG_MALDIVES}
-              alt="Maldives overwater villas"
+              src={IMG_UAE}
+              alt="Dubai — UAE visa services"
               loading="lazy"
               className="h-40 w-full rounded-2xl object-cover shadow-lg sm:h-48"
             />

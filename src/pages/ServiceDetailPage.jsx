@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { CheckCircle2, ArrowLeft, ArrowRight, Phone, Mail } from 'lucide-react'
+import { CheckCircle2, ArrowLeft, ArrowRight, Phone, Mail, MapPin, GraduationCap } from 'lucide-react'
 import { services, getServiceBySlug } from '../data/services'
 import { CONTACT, WHATSAPP_NUMBER } from '../constants'
 import WhatsAppIcon from '../components/WhatsAppIcon'
@@ -91,6 +91,44 @@ export default function ServiceDetailPage() {
               {service.note && (
                 <p className="mt-4 text-sm italic text-gray-400">{service.note}</p>
               )}
+
+              {service.countries && (
+                <>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-primary-950">
+                    Countries We Cover
+                  </h2>
+                  <div className="mt-5 flex flex-wrap gap-2.5">
+                    {service.countries.map((country) => (
+                      <span
+                        key={country}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3.5 py-2 text-sm font-medium text-primary-950"
+                      >
+                        <MapPin className="h-3.5 w-3.5 shrink-0 text-accent-600" />
+                        {country}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {service.courseTypes && (
+                <>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-primary-950">
+                    Course Types
+                  </h2>
+                  <div className="mt-5 flex flex-wrap gap-2.5">
+                    {service.courseTypes.map((course) => (
+                      <span
+                        key={course}
+                        className="inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-2 text-sm font-medium text-primary"
+                      >
+                        <GraduationCap className="h-4 w-4 shrink-0" />
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -143,6 +181,8 @@ export default function ServiceDetailPage() {
                       <li key={s.slug}>
                         <Link
                           to={`/service/${s.slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="group flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-primary-50 hover:text-primary"
                         >
                           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
