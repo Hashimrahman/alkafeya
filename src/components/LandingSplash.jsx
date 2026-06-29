@@ -58,8 +58,6 @@ export default function LandingSplash() {
                 <Link
                   key={service.label}
                   to={`/service/${service.slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group flex cursor-pointer items-center gap-3 rounded-xl border border-white/60 bg-white/85 px-4 py-3.5 shadow-lg backdrop-blur-sm transition-all hover:-translate-y-1 hover:bg-white hover:shadow-xl"
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-white transition-colors group-hover:bg-accent group-hover:text-primary-950">

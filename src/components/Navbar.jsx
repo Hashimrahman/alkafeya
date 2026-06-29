@@ -61,7 +61,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
           className="flex cursor-pointer items-center gap-2.5"
         >
-          <img src="/logo.png" alt={BRAND.name} className="h-11 w-auto rounded-lg sm:h-12" />
+          <img src="/logo.png" alt={BRAND.name} className="h-12 w-auto rounded-lg sm:h-14" />
         </SectionLink>
 
         {/* Desktop nav */}
@@ -98,11 +98,11 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className={`flex h-9 w-9 items-center justify-center rounded-full transition-all ${color} ${
+              className={`flex h-10 w-10 items-center justify-center rounded-full transition-all ${color} ${
                 solid ? 'hover:bg-gray-100' : 'bg-white shadow-md hover:shadow-lg'
               }`}
             >
-              <Icon className="h-5 w-5" />
+              <Icon className="h-[22px] w-[22px]" />
             </a>
           ))}
         </div>
@@ -150,9 +150,9 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 aria-label={label}
                 onClick={() => setMenuOpen(false)}
-                className={`flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-gray-100 ${color}`}
+                className={`flex h-12 w-12 items-center justify-center rounded-full transition-colors hover:bg-gray-100 ${color}`}
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-6 w-6" />
               </a>
             ))}
           </li>

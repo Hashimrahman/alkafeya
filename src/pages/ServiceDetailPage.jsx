@@ -181,8 +181,6 @@ export default function ServiceDetailPage() {
                       <li key={s.slug}>
                         <Link
                           to={`/service/${s.slug}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
                           className="group flex items-center gap-3 rounded-lg px-2 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-primary-50 hover:text-primary"
                         >
                           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-50 text-primary transition-colors group-hover:bg-primary group-hover:text-white">

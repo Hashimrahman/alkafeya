@@ -31,6 +31,7 @@ export const CONTACT = {
   phoneHref: 'tel:+971543560908',
   email: 'info@skyfallinternational.com',
   address: [
+    BRAND.name,
     'Al Faz International General Trading LLC',
     'M2 Floor, Burj Nahar Complex, Entrance 2',
     'A5 Block, Office No: 06',

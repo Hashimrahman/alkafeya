@@ -22,7 +22,7 @@ export default function Hero() {
           {/* Eyebrow badge */}
           <span className="animate-fade-in inline-flex items-center gap-2 rounded-full border border-primary-100 bg-primary-50 px-4 py-1.5 text-sm font-medium text-primary">
             <Plane className="h-4 w-4 -rotate-45 text-accent-500" />
-            UK • UAE • Visa • Study Abroad
+            UK • UAE • Visa • Study Abroad • KSA
           </span>
 
           <h1 className="animate-fade-up mt-6 font-heading text-4xl font-extrabold leading-tight text-primary-950 sm:text-5xl">

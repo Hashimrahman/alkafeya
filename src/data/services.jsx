@@ -1,4 +1,4 @@
-import { Building2, BadgeCheck, Plane, Globe, GraduationCap, Stamp, Landmark } from 'lucide-react'
+import { Building2, Plane, Globe, GraduationCap, Stamp, Landmark } from 'lucide-react'
 
 // Single source of truth for all services.
 // Used by the home "Our Services" carousel and the per-service detail pages.
@@ -24,17 +24,29 @@ export const services = [
     ],
   },
   {
-    slug: 'uae-visa-services',
-    title: 'UAE Visa Services',
-    tag: 'Visa',
-    icon: BadgeCheck,
+    slug: 'uae-services',
+    title: 'UAE Services',
+    tag: 'Business & Visa',
+    icon: Building2,
     image:
-      'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80&auto=format&fit=crop',
     short:
-      'Golden, freelance, visit and spouse visas — fast, reliable and fully managed end to end.',
+      'Company formation, trade licences, PRO services and every UAE visa — your complete UAE partner.',
     description:
-      'Whether you are relocating, investing, freelancing or bringing family to the UAE, we make the visa process effortless. Our team prepares your documentation, liaises with the authorities and keeps you updated at every step, ensuring high approval rates and quick turnaround for all UAE visa categories.',
-    offerings: ['Golden Visa', 'Freelance Visa', 'Visit Visa', 'Spouse Visa'],
+      'Setting up or settling in the UAE? Sky Fall International handles it all under one roof — company formation, trade licences, office space, PRO and government approvals, plus every UAE visa category from Golden and freelance to visit and spouse visas. One trusted partner for your business and your residency.',
+    offerings: [
+      'Company Formation',
+      'Business Setup',
+      'Trade Licenses — New & Renewal',
+      'External Approvals',
+      'Ejari, Istidama & Office Spaces',
+      'PRO Services',
+      'Amer & Tasheel Works',
+      'Golden Visa',
+      'Freelance Visa',
+      'Visit Visa',
+      'Spouse Visa',
+    ],
   },
   {
     slug: 'study-abroad',
@@ -89,27 +101,6 @@ export const services = [
       'Postgraduate',
       'Master of Research (MRes)',
       'PhD',
-    ],
-  },
-  {
-    slug: 'uae-services',
-    title: 'UAE Services',
-    tag: 'Business Setup',
-    icon: Building2,
-    image:
-      'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80&auto=format&fit=crop',
-    short:
-      'Company formation, trade licences and PRO services to launch and run your business in the UAE.',
-    description:
-      'Setting up a business in the UAE is simple with Sky Fall International by your side. From choosing the right jurisdiction and securing your trade licence to office space, government approvals and ongoing PRO support, we handle the entire process so you can focus on growing your business. Our consultants stay up to date with the latest regulations to keep your company fully compliant.',
-    offerings: [
-      'Company Formation',
-      'Business Setup',
-      'External Approvals',
-      'Trade Licenses — New & Renewal',
-      'Ejari, Istidama & Office Spaces',
-      'PRO Services',
-      'Amer & Tasheel Works',
     ],
   },
   {

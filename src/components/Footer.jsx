@@ -84,8 +84,6 @@ export default function Footer() {
                 <li key={s.slug}>
                   <Link
                     to={`/service/${s.slug}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="cursor-pointer text-sm text-gray-600 transition-colors hover:text-primary"
                   >
                     {s.title}
