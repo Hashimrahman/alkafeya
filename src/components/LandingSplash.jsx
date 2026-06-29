@@ -21,15 +21,29 @@ export default function LandingSplash() {
       style={{ background: 'linear-gradient(to bottom, #eaf2fb, #d7e6f4)' }}
       aria-label="Sky Fall International"
     >
+      {/* Large screens: full branded banner */}
       <img
         src={SPLASH_IMG}
         alt="Sky Fall International — Where Dreams Come True"
-        className="h-full w-full object-cover object-center"
+        className="absolute inset-0 hidden h-full w-full object-cover object-center lg:block"
         loading="eager"
         onError={(e) => {
           e.currentTarget.style.display = 'none'
         }}
       />
+
+      {/* Small screens: centered logo on the gradient (banner crops badly on mobile) */}
+      <div className="absolute inset-0 flex items-center justify-center px-8 lg:hidden">
+        <img
+          src="/logo.png"
+          alt="Sky Fall International — Where Dreams Come True"
+          className="w-full max-w-sm"
+          loading="eager"
+          onError={(e) => {
+            e.currentTarget.style.display = 'none'
+          }}
+        />
+      </div>
 
       {/* Scrolling ad ticker, pinned at the top of the landing (below the navbar) */}
       <ServiceTicker />
